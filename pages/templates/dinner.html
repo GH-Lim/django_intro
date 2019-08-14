@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dinner</title>
+  <title>{{ name }}님의 Dinner</title>
 </head>
 <body>
-  <h1>Dinner 추천입니다.</h1>
+  <h1>Dinner 추천 서비스</h1>
   {% comment %} 전달받은 context 에서 변수 치환 {% endcomment %}
-  <p>오늘 저녁은 {{ pick }} 에서 드시죠!</p>
+  <p>{{ name }}님에게 추천하는 오늘 저녁!!</p>
+  <p>오늘은 {{ pick }} 에서 드시죠!</p>
 </body>
 </html>
