@@ -23,6 +23,12 @@ from pages import views
 
 urlpatterns = [
     # path('사용자가 접속하는 경로', views.함수이름),
+    path('lotto_result/', views.lotto_result),
+    path('lotto_pick/', views.lotto_pick),
+    
+    path('result/', views.result),
+    path('search/', views.search),
+
     path('lotto/', views.lotto),
     path('isityourbirthday/<str:birthday>/', views.isityourbirthday),
     path('isitbirthday/', views.isitbirthday),

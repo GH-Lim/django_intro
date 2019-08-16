@@ -103,3 +103,32 @@ def lotto(request):
         'lotto': rand_lotto,
     }
     return render(request, 'lotto.html', context)
+
+
+def search(request):
+    return render(request, 'search.html')
+
+
+def result(request):
+    query = request.GET.get('query')
+    category = request.GET.get('category')
+    context = {
+        'query': query,
+        'category': category,
+    }
+    return render(request, 'result.html', context)
+
+
+def lotto_pick(request):
+    return render(request, 'lotto_pick.html')
+
+
+def lotto_result(request):
+    real_lotto = [21, 25, 30, 32, 40, 42]
+    pick_nums = list(map(int, request.GET.get('pick_nums').split()))
+    pick_nums.sort()
+    context = {
+        'real_lotto': real_lotto,
+        'pick_nums': pick_nums,
+    }
+    return render(request, 'lotto_result.html', context)
