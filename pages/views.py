@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from datetime import datetime
 import random
 
 
@@ -59,3 +60,46 @@ def strtimes(request, numxnum):
         'result': num1 * num2,
     }
     return render(request, 'strtimes.html', context)
+
+
+def template_language(request):
+    menus = ['짜장면', '탕수육', '짬뽕', '양장피']
+    my_sentence = 'Life is short, you need python'
+    messages = ['apple', 'banana', 'cucumber', 'mango']
+    datetimenow = datetime.now()
+    empty_list = []
+    context = {
+        'menus': menus,
+        'my_sentence': my_sentence,
+        'messages': messages,
+        'datetimenow': datetimenow,
+        'empty_list': empty_list,
+    }
+    return render(request, 'template_language.html', context)
+
+
+def isitbirthday(request):
+    my_birthday = '0816'
+    context = {
+        'mybirthday': my_birthday,
+    }
+    return render(request, 'isitbirthday.html', context)
+
+
+def isityourbirthday(request, birthday):
+    your_birthday = birthday
+    context = {
+        'yourbirth': your_birthday,
+    }
+    return render(request, 'isityourbirthday.html', context)
+
+
+def lotto(request):
+    real_lotto = [21, 25, 30, 32, 40, 42]
+    rand_lotto = random.sample(range(1,46), 6)
+    rand_lotto.sort()
+    context = {
+        'real_lotto': real_lotto,
+        'lotto': rand_lotto,
+    }
+    return render(request, 'lotto.html', context)

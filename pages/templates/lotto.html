@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>인생역전</title>
+</head>
+<body>
+  <h1>로오오오오오또오오오오오</h1>
+  <hr>
+  {% for number in lotto %}
+    <p>{{ number }}</p>
+  {% endfor %}
+  <hr>
+  <p>당첨번호: {{ real_lotto }}</p>
+  <p>나의번호: {{ lotto }}</p>
+  <hr>
+  {% if lotto == real_lotto %}
+    <p>당첨! 운을 여기다가 써버렸네요</p>
+  {% else %}
+    <p>꽝~! 다음기회에!</p>
+  {% endif %}
+  </body>
+</html>

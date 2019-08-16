@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template Language</title>
+</head>
+<body>
+  <h1>Template Language</h1>
+  <hr>
+
+  <h2>1. 반복문</h2>
+  {% for menu in menus %}
+  <p>{{ menu }}</p>
+  {% endfor %}
+  <hr>
+  
+  {% comment %}
+  {{ forloop }} Django Template Language for 문 안에서 자동으로 생기는 객체
+  {% endcomment %}
+  {% for menu in menus%}
+  <p>{{ forloop.counter }}. {{ menu }}</p>
+  {% endfor %}
+  <hr>
+
+  {% for user in empty_list %}
+  <p>{{ user }}</p>
+  {% empty %}
+  <p>아무도 없습니다.</p>
+  {% endfor %}
+  <hr>
+
+  <h2>2. 조건문</h2>
+  {% if '자장면' in menus %}
+  <p>짜장면있음</p>
+  {% else %}
+  <p>짜장면없음</p>
+  {% endif %}
+  <hr>
+
+  {% for menu in menus %}
+    <p><strong>{{ forloop.counter }}번째 도는 중...</strong></p>
+    {% if forloop.first %}
+    <p>{{ menu }} {{ menu }}</p>
+    {% elif forloop.last %}
+    <p>{{ menu }} {{ menu }} {{ menu }}</p>
+    {% else %}
+    <p>{{ menu }}</p>
+    {% endif %}
+  {% endfor %}
+  <hr>
+
+  <h2>3. length filter 활용</h2>
+  {% for message in messages %}
+    {% if message|length > 5 %}
+    <p>{{ message }}, 글자가 너무 길어요</p>
+    {% else %}
+    <p>{{ message }}, {{ message|length }}</p>
+    {% endif %}
+  {% endfor %}
+
+  <h2>4. lorem ipsum</h2>
+  <p>{% lorem %}</p>
+  <p>{% lorem 3 w %}</p>
+  <p>{% lorem 4 w random %}</p>
+  <p>{% lorem 2 p random %}</p>
+  <hr>
+
+  <h2>5. 글자 수 제한(truncate)</h2>
+  <p>{{ my_sentence|truncatewords:3 }}</p> <!-- 단어 단위로 제한 -->
+  <!-- DTL를 html 주석 안에 넣지 않아야 함 -->
+  {% comment %} 주석이 안보여! {% endcomment %}
+  <p>{{ my_sentence|truncatechars:3 }}</p> <!-- char 단위로 제한 (3번째는 포함 x) -->
+  <p>{{ my_sentence|truncatechars:10 }}</p> <!-- char 단위로 제한 (10번째는 포함 x) -->
+
+  <h2>6. 글자 관련 필터</h2>
+  <p>{{ "abc"|length }}</p>
+  <p>{{ "ABC"|lower }}</p>
+  <p>{{ "abc"|upper }}</p>
+  <p>{{ my_sentence|title }}</p>
+  <p>{{ "abc def"|capfirst }}</p>
+  <p>{{ menus|random }}</p>
+  <hr>
+
+  <h2>7. 연산</h2>
+  <p>{{ 4|add:6 }}</p>
+
+  <h2>8. 날짜 표현</h2>
+  {% comment %} 
+    {% now %} 가 내장되어 있다.
+  {% endcomment %}
+  <p>{{ datetimenow }}</p>
+  <p>{% now "Y-m-d H:i" %}</p>
+  <p>{% now "DATE_FORMAT" %}</p>
+  <p>{% now "TIME_FORMAT" %}</p>
+  <p>{% now "Y년 m월 d일 (D) h:i" %}</p>
+  <hr>
+  {% now "Y" as current_year %}
+  <p>Copyright {{ current_year }}</p>
+  <hr>
+  <p>{{ datetimenow|date:"DATE_FORMAT" }}</p>
+  <hr>
+
+  <h2>9. 기타</h2>
+  <p>{{ "google.com"|urlize }}</p>
+</body>
+</html>
