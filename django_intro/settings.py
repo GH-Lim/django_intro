@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Local apps 로컬 앱스를 위에 장고앱스를 맨 밑에
     'pages', # 이렇게 해야 사용 가능. 출생신고 같은 것
+    'utilities',
 
     # Third party apps 써드파티앱은 중간에!
 
