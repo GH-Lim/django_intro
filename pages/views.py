@@ -7,11 +7,11 @@ import random
 def index(request):         # 첫번쨰 인자는 반드시 request => 사용자가 보내는 요청에 대한 정보
     # 요청이 들어오면 'index.html' 을 보여준다.
     # 어디서?  =>  pages(소속된 앱) 안에 있는 templates 폴더
-    return render(request, 'index.html') # render의 첫번째 인자도 반드시 request가 들어간다
+    return render(request, 'pages/index.html') # render의 첫번째 인자도 반드시 request가 들어간다
 
 
 def introduce(request):
-    return render(request, 'introduce.html')
+    return render(request, 'pages/introduce.html')
 
 
 # Template Variable Example
@@ -24,7 +24,7 @@ def dinner(request, name):
         'name': name,
     }
     # Django templates 로 context 전달
-    return render(request, 'dinner.html', context)
+    return render(request, 'pages/dinner.html', context)
 
 
 def image(request):
@@ -32,14 +32,14 @@ def image(request):
     context = {
         'randimage': image_url,
     }
-    return render(request, 'image.html', context)
+    return render(request, 'pages/image.html', context)
 
 
 def greeting(request, name):
     context = {
         'name': name,
     }
-    return render(request, 'greeting.html', context)
+    return render(request, 'pages/greeting.html', context)
 
 
 def times(request, num1, num2):
@@ -49,7 +49,7 @@ def times(request, num1, num2):
         'num2': num2,
         'result': result,
     }
-    return render(request, 'times.html', context)
+    return render(request, 'pages/times.html', context)
 
 
 def strtimes(request, numxnum):
@@ -59,7 +59,7 @@ def strtimes(request, numxnum):
         'num2': num2,
         'result': num1 * num2,
     }
-    return render(request, 'strtimes.html', context)
+    return render(request, 'pages/strtimes.html', context)
 
 
 def template_language(request):
@@ -75,7 +75,7 @@ def template_language(request):
         'datetimenow': datetimenow,
         'empty_list': empty_list,
     }
-    return render(request, 'template_language.html', context)
+    return render(request, 'pages/template_language.html', context)
 
 
 def isitbirthday(request):
@@ -83,7 +83,7 @@ def isitbirthday(request):
     context = {
         'mybirthday': my_birthday,
     }
-    return render(request, 'isitbirthday.html', context)
+    return render(request, 'pages/isitbirthday.html', context)
 
 
 def isityourbirthday(request, birthday):
@@ -91,7 +91,7 @@ def isityourbirthday(request, birthday):
     context = {
         'yourbirth': your_birthday,
     }
-    return render(request, 'isityourbirthday.html', context)
+    return render(request, 'pages/isityourbirthday.html', context)
 
 
 def lotto(request):
@@ -102,11 +102,11 @@ def lotto(request):
         'real_lotto': real_lotto,
         'lotto': rand_lotto,
     }
-    return render(request, 'lotto.html', context)
+    return render(request, 'pages/lotto.html', context)
 
 
 def search(request):
-    return render(request, 'search.html')
+    return render(request, 'pages/search.html')
 
 
 def result(request):
@@ -116,11 +116,11 @@ def result(request):
         'query': query,
         'category': category,
     }
-    return render(request, 'result.html', context)
+    return render(request, 'pages/result.html', context)
 
 
 def lotto_pick(request):
-    return render(request, 'lotto_pick.html')
+    return render(request, 'pages/lotto_pick.html')
 
 
 def lotto_result(request):
@@ -131,19 +131,19 @@ def lotto_result(request):
         'real_lotto': real_lotto,
         'pick_nums': pick_nums,
     }
-    return render(request, 'lotto_result.html', context)
+    return render(request, 'pages/lotto_result.html', context)
 
 
 def static_example(request):
-    return render(request, 'static_example.html')
+    return render(request, 'pages/static_example.html')
 
 
 def push(request):
-    return render(request, 'push.html')
+    return render(request, 'pages/push.html')
 
 
 def pull(request):
-    num = request.GET.get('push_num')
+    num = request.GET.get('pages/push_num')
     context = {
         'num': num,
     }
