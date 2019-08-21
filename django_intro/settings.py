@@ -61,8 +61,8 @@ ROOT_URLCONF = 'django_intro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'django_intro', 'templates')], # 경로 설정!
+        'APP_DIRS': True, # App 안에 있는 templates 폴더를 경로로 설정하겠다!
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
